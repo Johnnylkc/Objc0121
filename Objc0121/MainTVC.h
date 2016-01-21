@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  MainTVC.h
 //  Objc0121
 //
 //  Created by 劉坤昶 on 2016/1/21.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface MainTVC : UITableViewController
 
 @end
-

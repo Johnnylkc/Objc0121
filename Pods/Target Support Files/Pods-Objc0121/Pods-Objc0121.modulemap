@@ -1,0 +1,6 @@
+framework module Pods_Objc0121 {
+  umbrella header "Pods-Objc0121-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -7,16 +7,40 @@
 //
 
 #import "AppDelegate.h"
+#import "MainTVC.h"
 
 @interface AppDelegate ()
+
+@property(strong,nonatomic) UITabBarController *tabBarController;
+@property(strong,nonatomic) UIImage *tabIcon;
+@property(strong,nonatomic) UIImage *tabSelectedIcon;
 
 @end
 
 @implementation AppDelegate
 
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+
+    MainTVC *onePage = [MainTVC new];
+    UINavigationController *onePageNav = [[UINavigationController alloc] initWithRootViewController:onePage];
+    self.tabIcon = [UIImage imageNamed:@"001"];
+    self.tabSelectedIcon = [UIImage imageNamed:@"001"];
+    onePage.tabBarItem =
+    [[UITabBarItem alloc] initWithTitle:@"第一頁" image:self.tabIcon selectedImage:self.tabSelectedIcon];
+    
+    
+    NSArray *controllers = [[NSArray alloc] initWithObjects:onePageNav, nil];
+    self.tabBarController = [[UITabBarController alloc] init];
+    self.tabBarController.viewControllers = controllers;
+    
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.rootViewController = self.tabBarController;
+    [self.window makeKeyAndVisible];
+    
+    
+    
     return YES;
 }
 
