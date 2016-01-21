@@ -15,6 +15,9 @@
 
 @interface DetailTVC ()
 
+@property(strong,nonatomic) UIView *headerView;
+@property(strong,nonatomic) UIImageView *headerImage;
+
 @end
 
 @implementation DetailTVC
@@ -25,9 +28,31 @@
     
     [self.tableView registerClass:[DetailCell class] forCellReuseIdentifier:@"cell"];
     
-    NSLog(@"%@",self.nextDic);
-   
+    self.tableView.backgroundColor = [UIColor grayColor];
+    
+    [self allUI];
+    
+    
+    
 }
+
+
+-(void)allUI
+{
+    self.headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, 200)];
+    self.headerView.backgroundColor = [UIColor lightGrayColor];
+    self.tableView.tableHeaderView = self.headerView;
+    
+    self.headerImage = [[UIImageView alloc] initWithFrame:self.headerView.frame];
+    self.headerImage.contentMode = UIViewContentModeScaleAspectFill;
+    self.headerImage.clipsToBounds = YES;
+    NSURL *url = [NSURL URLWithString:[self.nextDic objectForKey:@"photo"]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    [self.headerImage setImageWithURLRequest:request placeholderImage:nil success:nil failure:nil];
+    [self.headerView addSubview:self.headerImage];
+    
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
