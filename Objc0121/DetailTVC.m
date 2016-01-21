@@ -1,86 +1,35 @@
 //
-//  MainTVC.m
+//  DetailTVC.m
 //  Objc0121
 //
-//  Created by 劉坤昶 on 2016/1/21.
+//  Created by 劉坤昶 on 2016/1/22.
 //  Copyright © 2016年 劉坤昶 Johnny. All rights reserved.
 //
 
-#import "MainTVC.h"
-#import "MainCell.h"
 #import "DetailTVC.h"
+#import "DetailCell.h"
 
 #import "AFNetworking.h"
 #import "UIImageView+AFNetworking.h"
 
 
-
-@interface MainTVC ()
-
-@property(strong,nonatomic) NSDictionary *originalDic;
-@property(strong,nonatomic) NSMutableArray *jsonArray;
+@interface DetailTVC ()
 
 @end
 
-@implementation MainTVC
-
-
-
-
-
-
-
--(void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:YES];
-    
-    self.tableView.rowHeight = 260;
-    
-}
-
+@implementation DetailTVC
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    [self.tableView registerClass:[MainCell class] forCellReuseIdentifier:@"cell"];
-    self.tableView.backgroundColor =
-    [[UIColor alloc] initWithRed:240/255.0 green:240/255.0 blue:240/255.0 alpha:1];
-
-
-    [self afnetworking];
+    [self.tableView registerClass:[DetailCell class] forCellReuseIdentifier:@"cell"];
     
-    
-    
-    
+    NSLog(@"%@",self.nextDic);
+   
 }
 
-
--(void)afnetworking
-{
-    
-    NSURL *URL = [NSURL URLWithString:@"http://www.pa9.club/api/v1/stores"];
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    [manager GET:URL.absoluteString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject)
-    {
-       
-        //NSLog(@"JSON: %@", responseObject);
-        self.originalDic = responseObject;
-        self.jsonArray = self.originalDic[@"data"];
-        NSLog(@"aaaaaa%@",self.jsonArray);
-        [self.tableView reloadData];
-
-    
-    } failure:^(NSURLSessionTask *operation, NSError *error)
-    {
-        NSLog(@"Error: %@", error);
-    }];
-
-}
-
-
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
@@ -94,48 +43,41 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.jsonArray.count;
+    return 50;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return  260;
+    CGFloat rowHeight;
+    
+    if (indexPath.row == 0)
+    {
+        rowHeight = 200;
+    }
+    else
+    {
+        rowHeight = 60;
+    }
+    
+    
+    return rowHeight;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    MainCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    
-    NSDictionary *dicForCell = self.jsonArray[indexPath.row];
+    DetailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
     
-    cell.backgroundColor = [UIColor clearColor];
-    
-   
-    NSURL *url = [NSURL URLWithString:[dicForCell objectForKey:@"photo"]];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    [cell.bigImage setImageWithURLRequest:request placeholderImage:nil success:nil failure:nil];
     
     
-    cell.bandName.text = dicForCell[@"name"];
-
+    cell.bandName.text = self.nextDic[@"name"];
+    
+    
     
     
     return cell;
 }
-
-
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    DetailTVC *controller = [DetailTVC new];
-    
-    controller.nextDic = self.jsonArray[indexPath.row];
-    [self.navigationController pushViewController:controller animated:YES];
-    
-}
-
-
 
 
 /*

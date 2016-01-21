@@ -13,6 +13,8 @@
 		B2C8DF121C50FF890029BD8B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2C8DF101C50FF890029BD8B /* LaunchScreen.storyboard */; };
 		B2C8DF1B1C50FFD20029BD8B /* MainTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B2C8DF1A1C50FFD20029BD8B /* MainTVC.m */; };
 		B2C8DF201C50FFFD0029BD8B /* MainCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B2C8DF1F1C50FFFD0029BD8B /* MainCell.m */; };
+		B2C8DF231C513F770029BD8B /* DetailTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B2C8DF221C513F770029BD8B /* DetailTVC.m */; };
+		B2C8DF261C513FAC0029BD8B /* DetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B2C8DF251C513FAC0029BD8B /* DetailCell.m */; };
 		E8E4AD74695AAB2B0EF8214C /* Pods_Objc0121.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F5D152C9589762B3B06BCFB /* Pods_Objc0121.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +33,10 @@
 		B2C8DF1A1C50FFD20029BD8B /* MainTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTVC.m; sourceTree = "<group>"; };
 		B2C8DF1E1C50FFFD0029BD8B /* MainCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainCell.h; sourceTree = "<group>"; };
 		B2C8DF1F1C50FFFD0029BD8B /* MainCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainCell.m; sourceTree = "<group>"; };
+		B2C8DF211C513F770029BD8B /* DetailTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailTVC.h; sourceTree = "<group>"; };
+		B2C8DF221C513F770029BD8B /* DetailTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailTVC.m; sourceTree = "<group>"; };
+		B2C8DF241C513FAC0029BD8B /* DetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailCell.h; sourceTree = "<group>"; };
+		B2C8DF251C513FAC0029BD8B /* DetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +105,8 @@
 			children = (
 				B2C8DF191C50FFD20029BD8B /* MainTVC.h */,
 				B2C8DF1A1C50FFD20029BD8B /* MainTVC.m */,
+				B2C8DF211C513F770029BD8B /* DetailTVC.h */,
+				B2C8DF221C513F770029BD8B /* DetailTVC.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -108,6 +116,8 @@
 			children = (
 				B2C8DF1E1C50FFFD0029BD8B /* MainCell.h */,
 				B2C8DF1F1C50FFFD0029BD8B /* MainCell.m */,
+				B2C8DF241C513FAC0029BD8B /* DetailCell.h */,
+				B2C8DF251C513FAC0029BD8B /* DetailCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -243,8 +253,10 @@
 			files = (
 				B2C8DF071C50FF890029BD8B /* AppDelegate.m in Sources */,
 				B2C8DF1B1C50FFD20029BD8B /* MainTVC.m in Sources */,
+				B2C8DF261C513FAC0029BD8B /* DetailCell.m in Sources */,
 				B2C8DF201C50FFFD0029BD8B /* MainCell.m in Sources */,
 				B2C8DF041C50FF890029BD8B /* main.m in Sources */,
+				B2C8DF231C513F770029BD8B /* DetailTVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
