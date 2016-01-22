@@ -28,6 +28,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES];
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
     
     self.tableView.rowHeight = 260;
     

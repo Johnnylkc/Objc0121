@@ -56,7 +56,6 @@
 {
     [super viewWillDisappear:YES];
     
-    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
 
     
     [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
@@ -64,6 +63,17 @@
     self.navigationController.navigationBar.translucent = NO;
     self.automaticallyAdjustsScrollViewInsets = YES;
 
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
+
+}
+
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:YES];
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
+
+
+    
 }
 
 
@@ -94,7 +104,7 @@
 {
  
     ////我原本一直用self.tableView.contentoffset.y 去試 原來要用scrollView ， 100這參數就看你的要拉到哪 自行設定
-    if (scrollView.contentOffset.y >100)
+    if (scrollView.contentOffset.y >110)
     {
         ////用animation是因為會突然出現NavBar 我希望有點緩衝
         [UIView animateWithDuration:0.2 animations:^{
@@ -103,11 +113,12 @@
             self.navigationController.navigationBar.translucent = NO;
            
             [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
+            
 
         }];
        
     }
-    else if (scrollView.contentOffset.y  < 100)
+    else if (scrollView.contentOffset.y  < 110)
     {
         
         [UIView animateWithDuration:0.2 animations:^{
@@ -120,6 +131,7 @@
             [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
 
 
+            
         }];
         
     }

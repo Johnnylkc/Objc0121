@@ -15,6 +15,8 @@
 		B2C8DF201C50FFFD0029BD8B /* MainCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B2C8DF1F1C50FFFD0029BD8B /* MainCell.m */; };
 		B2C8DF231C513F770029BD8B /* DetailTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B2C8DF221C513F770029BD8B /* DetailTVC.m */; };
 		B2C8DF261C513FAC0029BD8B /* DetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B2C8DF251C513FAC0029BD8B /* DetailCell.m */; };
+		B2C8DF2C1C529F930029BD8B /* ClassListTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B2C8DF2B1C529F930029BD8B /* ClassListTVC.m */; };
+		B2C8DF2F1C52A0CB0029BD8B /* ClassListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B2C8DF2E1C52A0CB0029BD8B /* ClassListCell.m */; };
 		E8E4AD74695AAB2B0EF8214C /* Pods_Objc0121.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F5D152C9589762B3B06BCFB /* Pods_Objc0121.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +39,10 @@
 		B2C8DF221C513F770029BD8B /* DetailTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailTVC.m; sourceTree = "<group>"; };
 		B2C8DF241C513FAC0029BD8B /* DetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailCell.h; sourceTree = "<group>"; };
 		B2C8DF251C513FAC0029BD8B /* DetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailCell.m; sourceTree = "<group>"; };
+		B2C8DF2A1C529F930029BD8B /* ClassListTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassListTVC.h; sourceTree = "<group>"; };
+		B2C8DF2B1C529F930029BD8B /* ClassListTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassListTVC.m; sourceTree = "<group>"; };
+		B2C8DF2D1C52A0CB0029BD8B /* ClassListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassListCell.h; sourceTree = "<group>"; };
+		B2C8DF2E1C52A0CB0029BD8B /* ClassListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassListCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +113,8 @@
 				B2C8DF1A1C50FFD20029BD8B /* MainTVC.m */,
 				B2C8DF211C513F770029BD8B /* DetailTVC.h */,
 				B2C8DF221C513F770029BD8B /* DetailTVC.m */,
+				B2C8DF2A1C529F930029BD8B /* ClassListTVC.h */,
+				B2C8DF2B1C529F930029BD8B /* ClassListTVC.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -118,6 +126,8 @@
 				B2C8DF1F1C50FFFD0029BD8B /* MainCell.m */,
 				B2C8DF241C513FAC0029BD8B /* DetailCell.h */,
 				B2C8DF251C513FAC0029BD8B /* DetailCell.m */,
+				B2C8DF2D1C52A0CB0029BD8B /* ClassListCell.h */,
+				B2C8DF2E1C52A0CB0029BD8B /* ClassListCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -252,8 +262,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2C8DF071C50FF890029BD8B /* AppDelegate.m in Sources */,
+				B2C8DF2C1C529F930029BD8B /* ClassListTVC.m in Sources */,
 				B2C8DF1B1C50FFD20029BD8B /* MainTVC.m in Sources */,
 				B2C8DF261C513FAC0029BD8B /* DetailCell.m in Sources */,
+				B2C8DF2F1C52A0CB0029BD8B /* ClassListCell.m in Sources */,
 				B2C8DF201C50FFFD0029BD8B /* MainCell.m in Sources */,
 				B2C8DF041C50FF890029BD8B /* main.m in Sources */,
 				B2C8DF231C513F770029BD8B /* DetailTVC.m in Sources */,

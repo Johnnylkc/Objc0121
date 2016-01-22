@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "MainTVC.h"
+#import "ClassListTVC.h"
 
 
 @interface AppDelegate ()
@@ -24,15 +25,24 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
 
+
+    
     MainTVC *onePage = [MainTVC new];
     UINavigationController *onePageNav = [[UINavigationController alloc] initWithRootViewController:onePage];
     self.tabIcon = [UIImage imageNamed:@"001"];
     self.tabSelectedIcon = [UIImage imageNamed:@"001"];
     onePage.tabBarItem =
-    [[UITabBarItem alloc] initWithTitle:@"第一頁" image:self.tabIcon selectedImage:self.tabSelectedIcon];
+    [[UITabBarItem alloc] initWithTitle:@"探索" image:self.tabIcon selectedImage:self.tabSelectedIcon];
+    
+    ClassListTVC *twoPage = [ClassListTVC new];
+    UINavigationController *twoPageNav = [[UINavigationController alloc] initWithRootViewController:twoPage];
+    self.tabIcon = [UIImage imageNamed:@"002"];
+    self.tabSelectedIcon = [UIImage imageNamed:@"002"];
+    twoPage.tabBarItem =
+    [[UITabBarItem alloc] initWithTitle:@"課程列表" image:self.tabIcon selectedImage:self.tabSelectedIcon];
     
     
-    NSArray *controllers = [[NSArray alloc] initWithObjects:onePageNav, nil];
+    NSArray *controllers = [[NSArray alloc] initWithObjects:onePageNav,twoPageNav, nil];
     self.tabBarController = [[UITabBarController alloc] init];
     self.tabBarController.viewControllers = controllers;
     
