@@ -36,6 +36,19 @@
     
 }
 
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:YES];
+    
+    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setShadowImage:nil];
+    self.navigationController.navigationBar.translucent = NO;
+    self.automaticallyAdjustsScrollViewInsets = YES;
+
+
+
+}
+
 
 -(void)allUI
 {
@@ -50,6 +63,13 @@
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     [self.headerImage setImageWithURLRequest:request placeholderImage:nil success:nil failure:nil];
     [self.headerView addSubview:self.headerImage];
+    
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setShadowImage:[UIImage new]];
+    self.navigationController.navigationBar.translucent = YES;
+    
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    
     
 }
 
@@ -95,7 +115,7 @@
     
     
     
-    
+    cell.bandName.text = @"";
     cell.bandName.text = self.nextDic[@"name"];
     
     

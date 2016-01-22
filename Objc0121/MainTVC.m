@@ -44,8 +44,11 @@
     [super viewDidLoad];
     
     [self.tableView registerClass:[MainCell class] forCellReuseIdentifier:@"cell"];
+    
     self.tableView.backgroundColor =
     [[UIColor alloc] initWithRed:240/255.0 green:240/255.0 blue:240/255.0 alpha:1];
+    
+    self.title = @"探索";
 
 
     [self afnetworking];
