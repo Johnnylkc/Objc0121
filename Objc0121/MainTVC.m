@@ -71,8 +71,12 @@
         self.originalDic = responseObject;
         self.jsonArray = self.originalDic[@"data"];
         NSLog(@"aaaaaa%@",self.jsonArray);
-        [self.tableView reloadData];
-
+       
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableView reloadData];
+        });
+        
+       
     
     } failure:^(NSURLSessionTask *operation, NSError *error)
     {

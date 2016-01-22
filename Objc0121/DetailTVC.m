@@ -32,10 +32,24 @@
     
     [self allUI];
     
+    ////下面這三行 分別是
+    ////第一行 ： NavBar的BackgroundImage 給他一個Image 但沒有給他任何圖（值）
+    ////第二行 ： NavBar的BackgroundImage 也是給他一個Image 但沒有給他任何圖（值）
+    ////第三行 ： NavBar的translucent(透明)，預設是NO不透明
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setShadowImage:[UIImage new]];
+    self.navigationController.navigationBar.translucent = YES;
+    
+    
+    ////下面這行原本有用到 預設是YES 如果改成NO 那圖片就可以頂到螢幕最上方 但後來沒有用了
+    // self.automaticallyAdjustsScrollViewInsets = NO;
+
     
     
 }
 
+
+////如果沒有在這把NavBar的設定改回原本的預設狀態 那回到前一頁NavBar也會變透明跟這頁一樣
 -(void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:YES];
@@ -45,18 +59,18 @@
     self.navigationController.navigationBar.translucent = NO;
     self.automaticallyAdjustsScrollViewInsets = YES;
 
-
-
 }
 
 
 -(void)allUI
 {
+    ////headerView的底VIew
     self.headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, 200)];
     self.headerView.backgroundColor = [UIColor lightGrayColor];
     self.tableView.tableHeaderView = self.headerView;
     
-    self.headerImage = [[UIImageView alloc] initWithFrame:self.headerView.frame];
+    ////要加在headerView上的Image
+    self.headerImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, -65, self.headerView.frame.size.width, self.headerView.frame.size.height + 65)];
     self.headerImage.contentMode = UIViewContentModeScaleAspectFill;
     self.headerImage.clipsToBounds = YES;
     NSURL *url = [NSURL URLWithString:[self.nextDic objectForKey:@"photo"]];
@@ -64,14 +78,55 @@
     [self.headerImage setImageWithURLRequest:request placeholderImage:nil success:nil failure:nil];
     [self.headerView addSubview:self.headerImage];
     
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
-    [self.navigationController.navigationBar setShadowImage:[UIImage new]];
-    self.navigationController.navigationBar.translucent = YES;
-    
-    self.automaticallyAdjustsScrollViewInsets = NO;
+
     
     
 }
+
+
+////UITableViewController原本就有UIScrollView的特性 直接用即可
+- ( void )scrollViewDidScroll:( UIScrollView *)scrollView;
+{
+ 
+    ////我原本一直用self.tableView.contentoffset.y 去試 原來要用scrollView ， 100這參數就看你的要拉到哪 自行設定
+    if (scrollView.contentOffset.y >100)
+    {
+        ////用animation是因為會突然出現NavBar 我希望有點緩衝
+        [UIView animateWithDuration:0.3 animations:^{
+            
+            [self.navigationController.navigationBar setShadowImage:nil];
+            self.navigationController.navigationBar.translucent = NO;
+                             
+        }];
+       
+    }
+    else if (scrollView.contentOffset.y  < 100)
+    {
+        
+        [UIView animateWithDuration:0.3 animations:^{
+           
+
+            [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+            [self.navigationController.navigationBar setShadowImage:[UIImage new]];
+            self.navigationController.navigationBar.translucent = YES;
+
+        }];
+        
+    }
+    
+    
+}
+
+
+////我想上面那個scrollViewDidScroll應該也可以改用這個 應該也可以
+- ( void )scrollViewWillBeginDragging:( UIScrollView *)scrollView;
+{
+
+
+}
+
+
+
 
 
 - (void)didReceiveMemoryWarning {
