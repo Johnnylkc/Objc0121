@@ -25,11 +25,6 @@
 @implementation MainTVC
 
 
-
-
-
-
-
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES];
@@ -44,6 +39,8 @@
     [super viewDidLoad];
     
     [self.tableView registerClass:[MainCell class] forCellReuseIdentifier:@"cell"];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+
     
     self.tableView.backgroundColor =
     [[UIColor alloc] initWithRed:240/255.0 green:240/255.0 blue:240/255.0 alpha:1];

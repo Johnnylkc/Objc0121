@@ -27,14 +27,16 @@
     [super viewDidLoad];
     
     [self.tableView registerClass:[DetailCell class] forCellReuseIdentifier:@"cell"];
-    
     self.tableView.backgroundColor = [UIColor grayColor];
     
-    [self allUI];
+    ////stausBar textColor
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+
     
-    ////下面這三行 分別是
+    [self allUI];
+        ////下面這三行 分別是
     ////第一行 ： NavBar的BackgroundImage 給他一個Image 但沒有給他任何圖（值）
-    ////第二行 ： NavBar的BackgroundImage 也是給他一個Image 但沒有給他任何圖（值）
+    ////第二行 ： NavBar的ShadowImage 也是給他一個Image 但沒有給他任何圖（值）
     ////第三行 ： NavBar的translucent(透明)，預設是NO不透明
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
     [self.navigationController.navigationBar setShadowImage:[UIImage new]];
@@ -53,6 +55,9 @@
 -(void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:YES];
+    
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
+
     
     [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
     [self.navigationController.navigationBar setShadowImage:nil];
@@ -79,7 +84,7 @@
     [self.headerView addSubview:self.headerImage];
     
 
-    
+
     
 }
 
@@ -92,23 +97,28 @@
     if (scrollView.contentOffset.y >100)
     {
         ////用animation是因為會突然出現NavBar 我希望有點緩衝
-        [UIView animateWithDuration:0.3 animations:^{
+        [UIView animateWithDuration:0.2 animations:^{
             
             [self.navigationController.navigationBar setShadowImage:nil];
             self.navigationController.navigationBar.translucent = NO;
-                             
+           
+            [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
+
         }];
        
     }
     else if (scrollView.contentOffset.y  < 100)
     {
         
-        [UIView animateWithDuration:0.3 animations:^{
+        [UIView animateWithDuration:0.2 animations:^{
            
 
             [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
             [self.navigationController.navigationBar setShadowImage:[UIImage new]];
             self.navigationController.navigationBar.translucent = YES;
+            
+            [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+
 
         }];
         
@@ -118,12 +128,7 @@
 }
 
 
-////我想上面那個scrollViewDidScroll應該也可以改用這個 應該也可以
-- ( void )scrollViewWillBeginDragging:( UIScrollView *)scrollView;
-{
 
-
-}
 
 
 
