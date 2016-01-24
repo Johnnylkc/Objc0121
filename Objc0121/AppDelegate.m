@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+
+#import "LandingVC.h"
 #import "MainTVC.h"
 #import "ClassListTVC.h"
 
@@ -25,7 +27,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
 
-
+    LandingVC *firstPage = [LandingVC new];
+    
+    
+    
     
     MainTVC *onePage = [MainTVC new];
     UINavigationController *onePageNav = [[UINavigationController alloc] initWithRootViewController:onePage];
@@ -47,7 +52,7 @@
     self.tabBarController.viewControllers = controllers;
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    self.window.rootViewController = self.tabBarController;
+    self.window.rootViewController = firstPage;
     [self.window makeKeyAndVisible];
     
     

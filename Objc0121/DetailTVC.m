@@ -112,6 +112,8 @@
             [self.navigationController.navigationBar setShadowImage:nil];
             self.navigationController.navigationBar.translucent = NO;
            
+            
+            
             [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
             
 
@@ -127,6 +129,7 @@
             [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
             [self.navigationController.navigationBar setShadowImage:[UIImage new]];
             self.navigationController.navigationBar.translucent = YES;
+            
             
             [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B28C9F9E1C54AE0C001B5116 /* LandingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B28C9F9D1C54AE0C001B5116 /* LandingVC.m */; };
 		B2C8DF041C50FF890029BD8B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B2C8DF031C50FF890029BD8B /* main.m */; };
 		B2C8DF071C50FF890029BD8B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B2C8DF061C50FF890029BD8B /* AppDelegate.m */; };
 		B2C8DF0F1C50FF890029BD8B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B2C8DF0E1C50FF890029BD8B /* Assets.xcassets */; };
@@ -24,6 +25,8 @@
 		4B67C4BD4F2BC18D1903FF7E /* Pods-Objc0121.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Objc0121.release.xcconfig"; path = "Pods/Target Support Files/Pods-Objc0121/Pods-Objc0121.release.xcconfig"; sourceTree = "<group>"; };
 		78BFB49625C2B19E10B55966 /* Pods-Objc0121.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Objc0121.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Objc0121/Pods-Objc0121.debug.xcconfig"; sourceTree = "<group>"; };
 		9F5D152C9589762B3B06BCFB /* Pods_Objc0121.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Objc0121.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B28C9F9C1C54AE0C001B5116 /* LandingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LandingVC.h; sourceTree = "<group>"; };
+		B28C9F9D1C54AE0C001B5116 /* LandingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LandingVC.m; sourceTree = "<group>"; };
 		B2C8DEFF1C50FF890029BD8B /* Objc0121.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Objc0121.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2C8DF031C50FF890029BD8B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B2C8DF051C50FF890029BD8B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -109,6 +112,8 @@
 		B2C8DF1C1C50FFD80029BD8B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				B28C9F9C1C54AE0C001B5116 /* LandingVC.h */,
+				B28C9F9D1C54AE0C001B5116 /* LandingVC.m */,
 				B2C8DF191C50FFD20029BD8B /* MainTVC.h */,
 				B2C8DF1A1C50FFD20029BD8B /* MainTVC.m */,
 				B2C8DF211C513F770029BD8B /* DetailTVC.h */,
@@ -264,6 +269,7 @@
 				B2C8DF071C50FF890029BD8B /* AppDelegate.m in Sources */,
 				B2C8DF2C1C529F930029BD8B /* ClassListTVC.m in Sources */,
 				B2C8DF1B1C50FFD20029BD8B /* MainTVC.m in Sources */,
+				B28C9F9E1C54AE0C001B5116 /* LandingVC.m in Sources */,
 				B2C8DF261C513FAC0029BD8B /* DetailCell.m in Sources */,
 				B2C8DF2F1C52A0CB0029BD8B /* ClassListCell.m in Sources */,
 				B2C8DF201C50FFFD0029BD8B /* MainCell.m in Sources */,
