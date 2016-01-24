@@ -8,6 +8,9 @@
 
 #import "LandingVC.h"
 
+#import "MainTVC.h"
+#import "ClassListTVC.h"
+
 @interface LandingVC () <UIScrollViewDelegate>
 
 @property(strong,nonatomic) UIScrollView *scrollView;
@@ -22,6 +25,11 @@
 @property(strong,nonatomic) UIButton *signButton;
 @property(strong,nonatomic) UIButton *loginButton;
 @property(strong,nonatomic) UIView *lineView;
+
+@property(strong,nonatomic) UITabBarController *tabBarController;
+@property(strong,nonatomic) UIImage *tabIcon;
+@property(strong,nonatomic) UIImage *tabSelectedIcon;
+
 
 
 
@@ -101,6 +109,7 @@
     [self.signButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     self.signButton.titleLabel.font = [UIFont boldSystemFontOfSize:16];
     self.signButton.backgroundColor = [UIColor grayColor];
+    [self.signButton addTarget:self action:@selector(signUp:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.signButton];
     
     self.loginButton =
@@ -128,6 +137,33 @@
     self.pageControl.currentPage = page;
 }
 
+-(void)signUp:(UIButton*)signButton
+{
+    
+    MainTVC *onePage = [MainTVC new];
+    UINavigationController *onePageNav = [[UINavigationController alloc] initWithRootViewController:onePage];
+    self.tabIcon = [UIImage imageNamed:@"001"];
+    self.tabSelectedIcon = [UIImage imageNamed:@"001"];
+    onePage.tabBarItem =
+    [[UITabBarItem alloc] initWithTitle:@"探索" image:self.tabIcon selectedImage:self.tabSelectedIcon];
+    
+    ClassListTVC *twoPage = [ClassListTVC new];
+    UINavigationController *twoPageNav = [[UINavigationController alloc] initWithRootViewController:twoPage];
+    self.tabIcon = [UIImage imageNamed:@"002"];
+    self.tabSelectedIcon = [UIImage imageNamed:@"002"];
+    twoPage.tabBarItem =
+    [[UITabBarItem alloc] initWithTitle:@"課程列表" image:self.tabIcon selectedImage:self.tabSelectedIcon];
+    
+    
+    NSArray *controllers = [[NSArray alloc] initWithObjects:onePageNav,twoPageNav, nil];
+    self.tabBarController = [[UITabBarController alloc] init];
+    self.tabBarController.viewControllers = controllers;
+    
+    self.tabBarController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    [self presentViewController:self.tabBarController animated:YES completion:nil];
+
+    
+}
 
 
 
