@@ -10,6 +10,27 @@
 
 @implementation PostCell
 
+
+-(id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+{
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    
+    if (self)
+    {
+        self.nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 150, 30)];
+        [self.contentView addSubview:self.nameLabel];
+        
+    }
+    
+    return  self;
+}
+
+
+
+
+
+
+
 - (void)awakeFromNib {
     // Initialization code
 }

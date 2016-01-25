@@ -8,12 +8,30 @@
 
 #import "PostTVC.h"
 #import "PostCell.h"
+#import "EditVC.h"
 
+
+
+#import "AFNetworking.h"
 @interface PostTVC ()
+{
+    NSMutableArray *nameArray;
+}
+
+
 
 @end
 
 @implementation PostTVC
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:YES];
+    
+    self.tableView.rowHeight = 100;
+    
+    
+}
 
 - (void)viewDidLoad
 {
@@ -21,11 +39,65 @@
     
     [self.tableView registerClass:[PostCell class] forCellReuseIdentifier:@"cell"];
     self.tableView.backgroundColor = [UIColor whiteColor];
+    
+    UIBarButtonItem *plusButton =
+    [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(show:)];
+    [self.navigationItem setRightBarButtonItem:plusButton animated:YES];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateData:) name:@"addUserInfo" object:nil];
 
+
+    nameArray = [NSMutableArray new];
+    
 
 }
 
-- (void)didReceiveMemoryWarning {
+
+
+//-(void)AFNetworkingGET
+//{
+//    
+//    NSURL *URL = [NSURL URLWithString:@"http://jsonplaceholder.typicode.com/users"];
+//    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+//    [manager GET:URL.absoluteString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
+//       
+//        
+//        NSLog(@"JSON: %@", responseObject);
+//    
+//    
+//    } failure:^(NSURLSessionTask *operation, NSError *error) {
+//        NSLog(@"Error: %@", error);
+//    }];
+//    
+//}
+
+
+-(void)show:(id)sender
+{
+    EditVC *controller = [EditVC new];
+    [self presentViewController:controller animated:YES completion:nil];
+}
+
+-(void)updateData:(NSNotification*)addUserInfo
+{
+    NSDictionary *dic = addUserInfo.userInfo;
+    [nameArray insertObject:dic atIndex:0];
+    NSIndexPath *indexpath = [NSIndexPath indexPathForRow:0 inSection:0];
+    [self.tableView insertRowsAtIndexPaths:@[indexpath] withRowAnimation:UITableViewRowAnimationRight];
+    
+}
+
+
+
+
+
+
+
+
+
+
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
@@ -39,7 +111,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 20;
+    return nameArray.count;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -49,7 +121,11 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    PostCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    
+    NSDictionary *dicForCell = nameArray[indexPath.row];
+    
+    cell.nameLabel.text = dicForCell[@"name"];
     
     
     return cell;

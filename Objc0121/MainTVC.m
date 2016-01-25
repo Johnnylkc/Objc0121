@@ -20,6 +20,8 @@
 @property(strong,nonatomic) NSDictionary *originalDic;
 @property(strong,nonatomic) NSMutableArray *jsonArray;
 
+
+
 @end
 
 @implementation MainTVC
@@ -31,6 +33,8 @@
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
     
     self.tableView.rowHeight = 260;
+    
+  
     
 }
 
@@ -82,6 +86,10 @@
     }];
 
 }
+
+
+
+
 
 
 - (void)didReceiveMemoryWarning

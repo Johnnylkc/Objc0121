@@ -1,5 +1,5 @@
 //
-//  PostCell.h
+//  EditVC.h
 //  Objc0121
 //
 //  Created by 劉坤昶 on 2016/1/25.
@@ -8,8 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PostCell : UITableViewCell
+@interface EditVC : UIViewController
 
-@property(strong,nonatomic) UILabel *nameLabel;
 
 @end
