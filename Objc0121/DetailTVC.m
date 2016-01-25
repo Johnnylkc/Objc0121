@@ -22,6 +22,28 @@
 
 @implementation DetailTVC
 
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:YES];
+    
+    ////下面這三行 分別是
+    ////第一行 ： NavBar的BackgroundImage 給他一個Image 但沒有給他任何圖（值）
+    ////第二行 ： NavBar的ShadowImage 也是給他一個Image 但沒有給他任何圖（值）
+    ////第三行 ： NavBar的translucent(透明)，預設是NO不透明
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setShadowImage:[UIImage new]];
+    self.navigationController.navigationBar.translucent = YES;
+    
+    
+    ////下面這行原本有用到 預設是YES 如果改成NO 那圖片就可以頂到螢幕最上方 但後來沒有用了
+    // self.automaticallyAdjustsScrollViewInsets = NO;
+
+    
+}
+
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -34,18 +56,7 @@
 
     
     [self allUI];
-        ////下面這三行 分別是
-    ////第一行 ： NavBar的BackgroundImage 給他一個Image 但沒有給他任何圖（值）
-    ////第二行 ： NavBar的ShadowImage 也是給他一個Image 但沒有給他任何圖（值）
-    ////第三行 ： NavBar的translucent(透明)，預設是NO不透明
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
-    [self.navigationController.navigationBar setShadowImage:[UIImage new]];
-    self.navigationController.navigationBar.translucent = YES;
-    
-    
-    ////下面這行原本有用到 預設是YES 如果改成NO 那圖片就可以頂到螢幕最上方 但後來沒有用了
-    // self.automaticallyAdjustsScrollViewInsets = NO;
-
+   
     
     
 }
@@ -61,7 +72,7 @@
     [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
     [self.navigationController.navigationBar setShadowImage:nil];
     self.navigationController.navigationBar.translucent = NO;
-    self.automaticallyAdjustsScrollViewInsets = YES;
+   // self.automaticallyAdjustsScrollViewInsets = YES;
 
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
 
@@ -71,9 +82,6 @@
 {
     [super viewDidDisappear:YES];
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
-
-
-    
 }
 
 
@@ -107,12 +115,12 @@
     if (scrollView.contentOffset.y >110)
     {
         ////用animation是因為會突然出現NavBar 我希望有點緩衝
-        [UIView animateWithDuration:0.2 animations:^{
+        [UIView animateWithDuration:0.1 animations:^{
             
-            [self.navigationController.navigationBar setShadowImage:nil];
             self.navigationController.navigationBar.translucent = NO;
-           
-            
+
+            [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
+            [self.navigationController.navigationBar setShadowImage:nil];
             
             [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
             
@@ -123,17 +131,13 @@
     else if (scrollView.contentOffset.y  < 110)
     {
         
-        [UIView animateWithDuration:0.2 animations:^{
+        [UIView animateWithDuration:0.1 animations:^{
            
-
-            [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+        [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
             [self.navigationController.navigationBar setShadowImage:[UIImage new]];
             self.navigationController.navigationBar.translucent = YES;
             
-            
             [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
-
-
             
         }];
         

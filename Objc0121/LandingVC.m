@@ -10,6 +10,7 @@
 
 #import "MainTVC.h"
 #import "ClassListTVC.h"
+#import "PostTVC.h"
 
 @interface LandingVC () <UIScrollViewDelegate>
 
@@ -137,6 +138,7 @@
     self.pageControl.currentPage = page;
 }
 
+
 -(void)signUp:(UIButton*)signButton
 {
     
@@ -154,8 +156,14 @@
     twoPage.tabBarItem =
     [[UITabBarItem alloc] initWithTitle:@"課程列表" image:self.tabIcon selectedImage:self.tabSelectedIcon];
     
+    PostTVC *threePage = [PostTVC new];
+    UINavigationController *threePageNav = [[UINavigationController alloc] initWithRootViewController:threePage];
+    self.tabIcon = [UIImage imageNamed:@"003"];
+    self.tabSelectedIcon = [UIImage imageNamed:@"003"];
+    threePage.tabBarItem =
+    [[UITabBarItem alloc] initWithTitle:@"第三頁" image:self.tabIcon selectedImage:self.tabSelectedIcon];
     
-    NSArray *controllers = [[NSArray alloc] initWithObjects:onePageNav,twoPageNav, nil];
+    NSArray *controllers = [[NSArray alloc] initWithObjects:onePageNav,twoPageNav,threePageNav, nil];
     self.tabBarController = [[UITabBarController alloc] init];
     self.tabBarController.viewControllers = controllers;
     
